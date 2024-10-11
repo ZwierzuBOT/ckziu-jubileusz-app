@@ -5,7 +5,7 @@ import "./globals.css";
 import { ClerkProvider } from "@clerk/nextjs";
 
 import Header from "./components/header";
-
+import { UserButton } from "@clerk/nextjs";
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
   variable: "--font-geist-sans",
@@ -33,7 +33,20 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <Header />
+        <div className="w-screen h-[13vh] flex justify-between items-center">
+          <div className="w-1/3 h-full">
+
+          </div>
+
+          <div className="w-1/3 h-full">
+            <Header />
+          </div>
+
+          <div className="w-1/3 h-full flex justify-end items-start pr-3 pt-3">
+            <UserButton/>
+          </div>
+        </div>
+
         {children}
       </body>
     </html>

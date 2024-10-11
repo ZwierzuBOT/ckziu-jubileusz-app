@@ -1,13 +1,13 @@
 import Link from "next/link";
-import { SignedIn, UserButton } from "@clerk/nextjs";
+import { SignedIn } from "@clerk/nextjs";
 
 const Header = () => {
     return ( 
         <SignedIn>
-            <div className="w-[80%] h-[13vh] flex justify-around items-center bg-[#494854] rounded-b-xl">   
-                    <Link href="/blogs" className="text-3xl">Blogs</Link>
-                    <Link href="/create" className="text-3xl">Create</Link>
-                    <UserButton/>
+            <div className="w-full h-full flex justify-around items-center bg-[#494854] rounded-b-xl">   
+                    <Link href="/send" className="text-3xl rounded-b-xl  w-[50%] h-full flex justify-center items-center">Send</Link>
+                    
+                    <Link href="/regulations" className="text-3xl rounded-b-xl  w-[50%] h-full flex justify-center items-center">Regulations</Link>
             </div>
         </SignedIn>
      );
