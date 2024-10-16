@@ -36,7 +36,7 @@ export default function RootLayout({
         <div className="w-screen h-[13vh] flex justify-between items-center">
  
 
-          <div className="w-2/3 h-full">
+          <div className="w-2/5 h-full">
             <Header />
           </div>
 
