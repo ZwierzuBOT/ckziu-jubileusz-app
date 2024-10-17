@@ -57,18 +57,39 @@ const Header = () => {
             }`}
           ></div>
         </button>
+        
 
+
+        
         <Link
           href="/"
-          className="relative text-1.5xl md:text-2xl lg:text-3xl xl:text-4xl 
+          className={`
+                relative text-1.5xl md:text-2xl lg:text-3xl xl:text-4xl 
                 rounded-b-xl w-[50%] h-full justify-center items-center after:content-[''] 
                 after:absolute after:w-[1em] after:h-[0.15em] after:bg-gray-500 after:bottom-[0.7em] 
                 after:left-1/2 after:-translate-x-1/2 after:transition-all after:duration-500 after:ease-in-out 
                 after:rounded-full hover:after:w-[5em] hover:after:bg-[#fdee30] hover:after:left-1/2 
-                hover:after:-translate-x-1/2 hidden lg:flex"
+                hover:after:-translate-x-1/2 hidden lg:flex`}
         >
           Strona Główna
         </Link>
+        {resized && menuOpened && (
+          <Link
+          href="/"
+          className={`
+                relative text-1.5xl md:text-2xl lg:text-3xl xl:text-4xl bg-gray-600
+                w-[100%] h-[15%] justify-center items-center transition-all duration-500
+                hover:bg-gray-800  flex`}
+        >
+          Strona Główna
+        </Link>
+        )
+        }
+
+
+
+
+
 
         <a
           href="/#"
@@ -80,6 +101,8 @@ const Header = () => {
         >
           Regulamin
         </a>
+
+          
       </div>
       <h1 className='text-black'>{menuOpened ? 'True' : 'false'}</h1>
     </SignedIn>
