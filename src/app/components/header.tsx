@@ -30,16 +30,18 @@ const Header = () => {
       <div
         className={`header ${
           !menuOpened
-            ? 'lg:w-[40%] w-[6rem] h-full md:h-full sm:h-full min-h-[4rem]' 
-            : 'w-full h-[100vh] lg:h-[100vh]' 
-        } bg-gray-700 transition-all duration-500  flex justify-start 
-               lg:justify-around items-center ${!menuOpened ? 'rounded-br-xl' : 'rounded-none'}`}
+            ? 'lg:w-[40%] w-[6rem] h-full md:h-full sm:h-full min-h-[4rem]'
+            : 'w-full h-[100vh] lg:h-[100vh]'
+        } bg-gray-700 transition-all duration-500 flex justify-start lg:justify-around items-center ${
+          !menuOpened ? 'rounded-br-xl' : 'rounded-none'
+        } relative`}
       >
         <button
           onClick={() => setMenuOpened((prev) => !prev)}
-          className={`absolute flex lg:hidden w-[10%] h-[50%] flex-col justify-around min-w-[4rem] max-w-[4.5rem] max-h-16 left-2.5 
-                        ${resized ? 'top-6' : 'top-auto bottom-auto'}
-                        transition-all duration-1000`}
+          className={`absolute flex w-[10%] h-[50%] flex-col justify-around min-w-[4rem] max-w-[4.5rem] max-h-16 transition-all duration-500
+            ${menuOpened ? 'left-2.5 top-2.5' : 'left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2'}
+          `}
+          style={{ transition: menuOpened ? 'none' : 'all 0.5s ease' }}
         >
           <div
             className={`w-full bg-white h-[10%] rounded-xl transition-all duration-500 ${
@@ -57,10 +59,7 @@ const Header = () => {
             }`}
           ></div>
         </button>
-        
 
-
-        
         <Link
           href="/"
           className={`
@@ -73,23 +72,21 @@ const Header = () => {
         >
           Strona Główna
         </Link>
-        {resized && menuOpened && (
+
+        {resized && (
           <Link
-          href="/"
-          className={`
-                relative text-1.5xl md:text-2xl lg:text-3xl xl:text-4xl bg-gray-600
-                w-[100%] h-[15%] justify-center items-center transition-all duration-500
-                hover:bg-gray-800  flex`}
-        >
-          Strona Główna
-        </Link>
-        )
-        }
-
-
-
-
-
+            href="/"
+            className={` 
+              text-1.5xl md:text-2xl lg:text-3xl xl:text-4xl bg-gray-600 w-[100%] h-[15%] 
+              justify-center items-center transition-all duration-500 ease-in-out 
+              transform ${
+                menuOpened ? 'opacity-100 h-[15%] translate-x-0' : 'opacity-0 h-0 -translate-x-full'
+              } 
+              hover:bg-gray-800 flex absolute top-[10%]`}
+          >
+            Strona Główna
+          </Link>
+        )}
 
         <a
           href="/#"
@@ -101,10 +98,9 @@ const Header = () => {
         >
           Regulamin
         </a>
-
-          
       </div>
-      <h1 className='text-black'>{menuOpened ? 'True' : 'false'}</h1>
+
+      <h1 className="text-black">{menuOpened ? 'True' : 'false'}</h1>
     </SignedIn>
   );
 };
