@@ -82,7 +82,7 @@ const Header = () => {
               transform ${
                 menuOpened ? 'opacity-100 h-[15%] translate-x-0' : 'opacity-0 h-0 -translate-x-full'
               } 
-              hover:bg-gray-800 flex absolute top-[13vh]`}
+              hover:bg-gray-800 flex absolute top-[12vh]`}
           >
             Strona Główna
           </Link>
@@ -95,7 +95,7 @@ const Header = () => {
                 after:absolute after:w-[1em] after:h-[0.15em] after:bg-gray-500 after:bottom-[0.7em] 
                 after:left-1/2 after:-translate-x-1/2 after:transition-all after:duration-500 after:ease-in-out 
                 after:rounded-full hover:after:w-[5em] hover:after:bg-[#fdee30] hover:after:left-1/2 
-                hover:after:-translate-x-1/2 hidden lg:flex"
+                hover:after:-translate-x-1/2 hidden lg:flex "
         >
           Regulamin
         </a>
