@@ -39,7 +39,7 @@ const Header = () => {
         <button
           onClick={() => setMenuOpened((prev) => !prev)}
           className={`absolute flex w-[10%] h-[50%] flex-col justify-around min-w-[4rem] max-w-[4.5rem] max-h-16 transition-all duration-500
-            ${menuOpened ? 'left-2.5 top-2.5' : 'left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2'}
+            ${menuOpened ? 'left-2.5 top-2.5' : 'left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2'} ${resized ? "flex" : "hidden"} 
           `}
           style={{ transition: menuOpened ? 'none' : 'all 0.5s ease' }}
         >
@@ -82,7 +82,7 @@ const Header = () => {
               transform ${
                 menuOpened ? 'opacity-100 h-[15%] translate-x-0' : 'opacity-0 h-0 -translate-x-full'
               } 
-              hover:bg-gray-800 flex absolute top-[10%]`}
+              hover:bg-gray-800 flex absolute top-[13vh]`}
           >
             Strona Główna
           </Link>
@@ -91,16 +91,33 @@ const Header = () => {
         <a
           href="/#"
           className="relative text-1.5xl md:text-2xl lg:text-3xl xl:text-4xl 
-                rounded-b-xl w-[50%] h-full justify-center items-center after:content-[''] after:absolute after:w-[1em] 
-                after:h-[0.15em] after:bg-gray-500 lg:after:bottom-[0.7em] md:after:bottom-[0.8em] after:left-1/2 after:-translate-x-1/2 after:transition-all 
-                after:duration-500 after:ease-in-out after:rounded-full hover:after:w-[5em] hover:after:bg-[#fdee30] hover:after:left-1/2 
+                rounded-b-xl w-[50%] h-full justify-center items-center after:content-[''] 
+                after:absolute after:w-[1em] after:h-[0.15em] after:bg-gray-500 after:bottom-[0.7em] 
+                after:left-1/2 after:-translate-x-1/2 after:transition-all after:duration-500 after:ease-in-out 
+                after:rounded-full hover:after:w-[5em] hover:after:bg-[#fdee30] hover:after:left-1/2 
                 hover:after:-translate-x-1/2 hidden lg:flex"
         >
           Regulamin
         </a>
+        {resized && (
+                    <a
+                    href="#"
+                    className={` 
+                      text-1.5xl md:text-2xl lg:text-3xl xl:text-4xl bg-gray-600 w-[100%] h-[15%] 
+                      justify-center items-center transition-all duration-500 ease-in-out 
+                      transform ${
+                        menuOpened ? 'opacity-100 h-[15%] translate-x-0' : 'opacity-0 h-0 -translate-x-full'
+                      } 
+                      hover:bg-gray-800 flex absolute top-[25vh]`}
+                  >
+                    Regulamin
+                  </a>
+        )}
+
+
       </div>
 
-      <h1 className="text-black">{menuOpened ? 'True' : 'false'}</h1>
+      <h1 className="text-black">{menuOpened ? 'True' : 'false'} resized: {resized ? "true" : "false"}</h1>
     </SignedIn>
   );
 };
