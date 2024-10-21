@@ -33,7 +33,7 @@ const Header = () => {
             ? 'lg:w-[60%] w-[6rem] h-full md:h-full sm:h-full min-h-[4rem]'
             : 'w-full h-[100vh] lg:h-[100vh] '
         } bg-gray-700 transition-all duration-500 flex justify-start lg:justify-around items-center ${
-          !menuOpened ? 'rounded-br-xl' : 'rounded-none flex-col items-center pt-[50%]  '
+          !menuOpened ? 'rounded-br-xl' : 'rounded-none flex-col items-center  pt-[45%] sm:pt-[40%] md:pt-[15%]  '
         } relative
         `}
       >
